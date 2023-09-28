@@ -1,0 +1,16 @@
+import random
+
+# defining a function
+def guess_randomno(x):
+    randomno = random.randint(1, x) # generating random numbers between two bounds
+    guess_randomno = 0 # initializing it with a pre-defined value so the game can start smoothly
+    while guess_randomno != randomno: 
+        guess_randomno = int(input("\n" + f"Guess a number between 1 and {x}: "))
+        if (guess_randomno > randomno): # an if-else loop for hints at finding the number
+            print("\n" + "Oops! Your guessed value is higher than the number I picked :(")
+        elif(guess_randomno < randomno):
+            print("\n" + "Oops! Your guessed value is lower than the number I picked :(") 
+    print("\n" + f"Hey! That was right! Congrats on finding the number {randomno}") # when the number is correct and there is no need for the while loop to be executed, 
+        # we directly reach this print statement that lets us know that we have won the game 
+
+guess_randomno(100)
