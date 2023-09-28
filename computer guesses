@@ -1,0 +1,22 @@
+import random
+
+def computer_guess(x):
+    low = 1 # the lower bound
+    high = x # the higher bound
+    feedback = '' # initializing feedback
+    guess_c = None  # initializing guess_c outside the loop
+    while feedback != 'c': # when the lower bound equals the higher bound, an error is generated instead of it being generated as 'correct'
+        # in order to avoid it, we enter the following if-else loop
+        if low != high:
+            guess_c = random.randint(low, high)
+        else:
+            guess_c = low or high
+        feedback = str(input("\n" + f"Is the number {guess_c} low(L), high(H) or correct(C)?  ")).lower()
+        if feedback == 'h':
+            high = guess_c - 1
+        elif feedback == 'l':
+            low = guess_c + 1
+    print("\n" + f"Yay! I am glad that I have guessed {guess_c} correctly!") # loop is only executed when feedback is not equal to c, 
+    # so when it is c and we imply that the computer's guess is right, we reach the final print statement
+
+computer_guess(1000)
